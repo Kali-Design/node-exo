@@ -18,7 +18,7 @@ Si l'âge est supérieur ou égal à l'argument passé en ligne de commande lui 
 
 prenom nom, vous êtes majeur, vous pouvez voter*/
 
-import readlineSync from 'readlineSync'
+import readlineSync from 'readline-sync'
 import chalk from 'chalk'
 
 const interMajority = () => {
