@@ -21,5 +21,47 @@
     1: Vrai => réponse attendue
     2: Faux
 */
-import readlineSync from 'readlineSync'
-import chalk from 'chalk'
+
+import readlineSync from 'readline-sync'
+let questionnaire = [
+    {
+        question: 'Question 1: Le C++ est un:',
+        1: 'langage',
+        2: 'compilateur',
+        isCorrect: '1',
+    },
+    {
+        question: 'Question 2: TypeScript est une évolution de Javascript:',
+        1: 'Vrai',
+        2: 'Faux',
+        isCorrect: '1',
+    },
+    {
+        question:
+            'Question 3: Lire les cours avant de faire les exercices est inutile:',
+        1: 'Vrai',
+        2: 'Faux',
+        isCorrect: '2',
+    },
+    {
+        question: 'Question 4: react.js a été developpé par Google:',
+        1: 'Vrai',
+        2: 'Faux',
+        isCorrect: '2',
+    },
+    {
+        question: 'Question 5: Ethereum est une blockchain publique:',
+        1: 'Vrai',
+        2: 'Faux',
+        isCorrect: '1',
+    },
+]
+let score = 0
+for (let element of questionnaire) {
+    let choix = [element['1'], element['2']]
+    let index = readlineSync.keyInSelect(choix, element.question)
+    if (index + 1 == element.isCorrect) {
+        score++
+    }
+}
+console.log(`You have answered correctly to ${score} out of 5 questions`)
